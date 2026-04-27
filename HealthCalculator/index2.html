@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Health Calculator</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+
+<body>
+
+<div class="navbar">
+    <h2>HealthCare+</h2>
+    <div>
+        <a onclick="showPage('home')">Home</a>
+        <a onclick="showPage('calc')">Calculator</a>
+        <a onclick="showPage('logPage')">Logs</a>
+    </div>
+</div>
+
+<!-- HOME -->
+<div id="home" class="page">
+    <div class="hero">
+        <div>
+            <h1>We Care For Your Health</h1>
+            <p>Track BMI, Calories & get Diet Plans instantly.</p>
+            <button onclick="showPage('calc')">Start Calculator</button>
+            <button onclick="showPage('logPage')">View Logs</button>
+        </div>
+    </div>
+</div>
+
+<!-- CALCULATOR -->
+<div id="calc" class="page hidden">
+    <h2>Health Calculator</h2>
+
+    <div class="form">
+        <input id="age" placeholder="Age" oninput="onlyNumbers(this)">
+        <input id="height" placeholder="Height (cm)" oninput="onlyNumbers(this)">
+        <input id="weight" placeholder="Weight (kg)" oninput="onlyNumbers(this)">
+
+        <select id="gender">
+            <option value="">Select Gender</option>
+            <option>Male</option>
+            <option>Female</option>
+        </select>
+
+        <select id="activity">
+            <option value="">Activity Level</option>
+            <option value="1.2">Sedentary</option>
+            <option value="1.375">Light</option>
+            <option value="1.55">Moderate</option>
+            <option value="1.725">Active</option>
+        </select>
+
+        <button onclick="calculate()">Calculate</button>
+        <button onclick="showPage('home')">Back</button>
+    </div>
+</div>
+
+<!-- RESULT -->
+<div id="result" class="page hidden">
+    <div class="result-box">
+        <h2>Your Health Report</h2>
+
+        <p id="bmi"></p>
+        <p id="category"></p>
+        <p id="calories"></p>
+
+        <button onclick="showDiet()">Get Diet Plan</button>
+        <button onclick="showPage('home')">Go Home</button>
+    </div>
+</div>
+
+<!-- DIET -->
+<div id="dietPage" class="page hidden">
+    <div class="result-box">
+        <h2>Your Diet Plan</h2>
+        <p id="dietText"></p>
+
+        <button onclick="showPage('home')">Go Home</button>
+    </div>
+</div>
+
+<!-- LOGS -->
+<div id="logPage" class="page hidden">
+    <h2>Health Logs</h2>
+    <ul id="logs" class="list"></ul>
+
+    <button onclick="clearLogs()" style="background:red;">
+        Clear Logs
+    </button>
+</div>
+
+<script src="script2.js"></script>
+</body>
+</html>

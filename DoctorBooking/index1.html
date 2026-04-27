@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Doctor Appointment</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+
+<body>
+
+<div class="navbar">
+    <h2>HealthCare+</h2>
+    <div>
+        <a onclick="showPage('homePage')">Home</a>
+        <a onclick="showPage('doctorPage')">Doctors</a>
+        <a onclick="showPage('contactPage')">Contact</a>
+        <a onclick="showPage('viewPage')">Appointments</a>
+    </div>
+</div>
+
+<!-- HOME -->
+<div id="homePage" class="page">
+    <div class="hero">
+        <div class="hero-text">
+            <h1>We Care For Your Health</h1>
+            <p>Your trusted healthcare partner. Book appointments with top specialists easily and quickly.</p>
+
+            <ul class="features">
+                <li>✔ Experienced Doctors</li>
+                <li>✔ Easy Appointment Booking</li>
+                <li>✔ Trusted Healthcare Service</li>
+            </ul>
+
+            <button onclick="showPage('bookPage')">Book Appointment</button>
+        </div>
+
+        <img src="images/doctor1.jpg">
+    </div>
+</div>
+<!-- BOOK -->
+<div id="bookPage" class="page hidden">
+    <h2>Book Appointment</h2>
+    <div class="form">
+        <input type="text" id="name" placeholder="Enter Name" oninput="onlyText(this)">
+        <select id="doctor">
+            <option>Dr. Sharma - Cardiologist</option>
+            <option>Dr. Das - Dentist</option>
+            <option>Dr. Roy - Neurologist</option>
+            <option>Dr. Khan - Orthopedic</option>
+        </select>
+        <input type="date" id="date">
+        <button onclick="book()">Proceed to Payment</button>
+        <button onclick="showPage('homePage')">Back</button>
+    </div>
+</div>
+
+<!-- PAYMENT -->
+<div id="paymentPage" class="page hidden">
+    <h2>Payment</h2>
+    <div class="payment-box">
+        <p>Consultation Fee: ₹500</p>
+        <input id="card" placeholder="Card Number" maxlength="16"
+oninput="this.value=this.value.replace(/[^0-9]/g,'')">
+
+<input id="holder" placeholder="Card Holder Name"
+oninput="this.value=this.value.replace(/[^A-Za-z ]/g,'')">
+
+<input id="cvv" placeholder="CVV" maxlength="3"
+oninput="this.value=this.value.replace(/[^0-9]/g,'')">
+        <button onclick="pay()">Pay Now</button>
+    </div>
+</div>
+
+<!-- PAYMENT SUCCESS -->
+<div id="paymentSuccessPage" class="page hidden">
+    <h2>Payment Successful ✅</h2>
+    <p>Your payment has been completed.</p>
+    <button onclick="confirmAppointment()">Continue</button>
+</div>
+
+<!-- CONFIRM -->
+<div id="confirmPage" class="page hidden">
+    <div class="confirm-box">
+        
+        <img src="images/doctor2.webp" class="confirm-img">
+
+        <h2>Appointment Confirmed 🎉</h2>
+
+        <p class="success-msg">
+            Your appointment has been successfully booked.
+        </p>
+
+        <div class="confirm-details" id="details"></div>
+
+        <p class="note">
+            Please arrive 10 minutes before your scheduled time.
+        </p>
+
+        <button class="home-btn" onclick="showPage('homePage')">
+            Go Back to Home
+        </button>
+
+    </div>
+</div>
+<!-- DOCTORS -->
+<div id="doctorPage" class="page hidden">
+    <h2>Our Doctors</h2>
+    <ul class="list">
+        <li>Dr. Sharma - Cardiologist</li>
+        <li>Dr. Das - Dentist</li>
+        <li>Dr. Roy - Neurologist</li>
+        <li>Dr. Khan - Orthopedic</li>
+    </ul>
+</div>
+
+<!-- CONTACT -->
+<div id="contactPage" class="page hidden">
+    <div class="contact-box">
+        
+        <h2>Contact Us</h2>
+        <p class="contact-sub">We’re here to help you. Reach out anytime.</p>
+
+        <div class="contact-item">
+            📞 <span>+91 98765 43210</span>
+        </div>
+
+        <div class="contact-item">
+            📞 <span>+91 91234 56789</span>
+        </div>
+
+        <div class="contact-item">
+            📍 <span>Guwahati, Assam, India</span>
+        </div>
+
+        <div class="contact-item">
+            ⏰ <span>Mon - Sat: 9:00 AM - 6:00 PM</span>
+        </div>
+
+    </div>
+</div>
+<div id="viewPage" class="page hidden">
+    <h2>All Appointments</h2>
+    <ul id="appointments" class="list"></ul>
+
+    <button onclick="resetAppointments()" style="margin-top:15px;background:#dc2626;">
+        Reset All Appointments
+    </button>
+</div>
+
+<script src="script1.js"></script>
+</body>
+</html>
